@@ -1,0 +1,1 @@
+brand,category_id,comment,currency,description,image,year_release
