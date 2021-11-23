@@ -3,19 +3,41 @@
 Description : Convert  csv file to parquet file
 
 
-###How to package it ?
+### How to package it ?
 ```
 python setup.py sdist
 ```
 ### Test it 
-create  virtual env 
+create  virtual env  with python version 3.7
+
+**Créer un python env**
+
+```
+virtualenv --python=/usr/bin/python3.7 py_env37
+```
+
+**Activate**
+```
+source venv/py_env37/bin/activate
+```
+Install
+
 ```
 py setup.py install
 ```
 
-Some csv example is in the resources directory
+run the tests to see if the setup works
+```
+py setup.py test
+```
 
-###Info
+run it by calling the module 
+
+```
+py -m converter.csvtoparquet -f product_catalog.csv 
+```
+
+### Info
 -   Scalability
 
 a option is available to chunk the csv in small part and register the file parquet by a suffix.
@@ -32,6 +54,14 @@ Example:
 AAAAMMDD_HH_MM_SS_filename_[valid/invalid]_[partnumber].txt
 
 
+-   If we restart the program ?
 
+A new file will be create with a different timestamp.
 
-- If we restart the program ?
+## Next ?
+
+- The next step will be to have a program that can restart at a point or in case the program is interrupted for X reasons.
+
+- Test other lib to benchmark the performance : 
+
+https://mungingdata.com/python/writing-parquet-pandas-pyspark-koalas/
